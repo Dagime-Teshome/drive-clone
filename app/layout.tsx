@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Drive Clone",
-  description: "google drive clone built with Next.js, Prisma, and Clerk",
+  description: "google drive clone built with Next.js",
 };
 
 export default function RootLayout({
@@ -35,16 +29,6 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
-            <div>
-              <SignedOut>
-                <SignInButton />
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-            </div>
-          </header>
           {children}
         </body>
       </html>
